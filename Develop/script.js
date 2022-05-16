@@ -2,10 +2,11 @@
 var generateBtn = document.querySelector("#generate");
 //global variables
 var pwLength = 0;
-var special = false;
-var upperCase = false;
-var lowerCase = false;
-var numeric = false;
+var charSet = "";
+const alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const alphaLower = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "0123456789";
+const symbols = "~!@#$%^&*()-_";
 
 //function to test if a user entry is a decimal, starts passLength() over if it is
 var fraction = function (number) {
@@ -29,11 +30,22 @@ var passLength = function () {
 // get user criteria for password requirements.
 var passCriteria = function () {
   passLength();
-  special = window.confirm("Would you like to include special characters?");
-  upperCase = window.confirm("Would you like to include upper case letters?");
-  lowerCase = window.confirm("Would you like to include lower case letters?");
-  numeric = window.confirm("Would you like to include numbers?");
-  if (special === false && upperCase === false && lowerCase === false && numeric === false) {
+  charSet = "";
+  //add user input criteria to allowable characters(charSet)
+  if (window.confirm("Would you like to include special characters?")){
+    charSet += symbols;
+  };
+  if (window.confirm("Would you like to include upper case letters?")){
+    charSet += alphaUpper;
+  };
+  if (window.confirm("Would you like to include lower case letters?")){
+    charSet += alphaLower;
+  };
+  if (window.confirm("Would you like to include numbers?")){
+    charSet += numbers;
+  };
+  //restart if no valid options chosen
+  if (charSet === "") {
     window.alert("You must choose at least one criteria!  Try again.");
     passCriteria();
   }
@@ -44,6 +56,12 @@ var passCriteria = function () {
 
 var generatePassword = function () {
   passCriteria();
+  var randomPass = "";
+// loop through the number of characters requested, generating a random character from selected options
+  for (i=0; i < pwLength; i++){
+    randomPass += charSet.charAt(Math.floor(Math.random()*charSet.length));
+  };
+  return randomPass;
 }
 // Write password to the #password input
 function writePassword() {
