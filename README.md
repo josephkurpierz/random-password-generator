@@ -18,15 +18,14 @@ No istallation is necessary. Just visit the deployed site and generate your new 
 
 [github repository](https://github.com/josephkurpierz/random-password-generator)
 [deployed web page](https://josephkurpierz.github.io/random-password-generator/)
+![random-password-generator screenshot](./assets/images/random-password-generator.png)
 
+To use this random password generator, simply click on the "Generate Password" button and follow the onscreen prompts.  Once all prompts and confirms are answered while meeting the criteria of password length and containing at least one character type, your password will display in the box.
 
-## Review
+## Credits
 
-You are required to submit the following for review:
+ Trilogy Education Services, LLC, a 2U, Inc. brand - for providing all HTML and CSS.
 
-* The URL of the deployed application.
+ ## License
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+ [MIT license](./LICENSE.txt)
