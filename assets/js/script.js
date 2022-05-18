@@ -24,24 +24,24 @@ var passLength = function () {
     window.alert("Please read directions and choose a valid password length.");
     passLength();
   };
-    fraction(pwLength);
-  };
+  fraction(pwLength);
+};
 
 // get user criteria for password requirements.
 var passCriteria = function () {
   passLength();
   charSet = "";
   //add user input criteria to allowable characters(charSet)
-  if (window.confirm("Would you like to include special characters?")){
+  if (window.confirm("Would you like to include special characters?")) {
     charSet += symbols;
   };
-  if (window.confirm("Would you like to include upper case letters?")){
+  if (window.confirm("Would you like to include upper case letters?")) {
     charSet += alphaUpper;
   };
-  if (window.confirm("Would you like to include lower case letters?")){
+  if (window.confirm("Would you like to include lower case letters?")) {
     charSet += alphaLower;
   };
-  if (window.confirm("Would you like to include numbers?")){
+  if (window.confirm("Would you like to include numbers?")) {
     charSet += numbers;
   };
   //restart if no valid options chosen
@@ -57,9 +57,9 @@ var passCriteria = function () {
 var generatePassword = function () {
   passCriteria();
   var randomPass = "";
-// loop through the number of characters requested, generating a random character from selected options
-  for (i=0; i < pwLength; i++){
-    randomPass += charSet.charAt(Math.floor(Math.random()*charSet.length));
+  // loop through the number of characters requested, generating a random character from selected options
+  for (i = 0; i < pwLength; i++) {
+    randomPass += charSet.charAt(Math.floor(Math.random() * charSet.length));
   };
   return randomPass;
 }
